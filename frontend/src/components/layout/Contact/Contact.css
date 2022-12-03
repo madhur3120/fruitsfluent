@@ -1,0 +1,94 @@
+/* html {
+    height: 100%
+    
+} */
+
+/* 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin: 10px 0px 10px;
+  color: black;
+  background-image: url("../public/images/contact_us.webp");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    
+  } */
+.contbody{
+  background-image: url("https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+  
+.contstyleformwrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 600px; 
+  padding: 0 20px;
+}
+
+.contform {
+  /* width: 100%; */
+  max-width: 800px;
+  padding: 5px 50px;
+  background-color: #B0E0E6;
+  /* background-color: #DC6836; */
+  /* background-color: #CC6633; */
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.continput {
+  display: block;
+  width: 100%;
+  height: 20px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  margin: 10px 0 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.conttextarea {
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+  /* height: 20px; */
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  /* margin: 10px 0 20px 0; */
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.contbutton {
+  display: block;
+  background-color: orange;
+  color: #fff;
+  font-size: 0.9rem;
+  border: 0;
+  border-radius: 10px;
+  height: 40px;
+  padding: 0 20px;
+  margin: 20px 0 30px 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.fieldset{
+    padding: 10px;
+    margin: 10px 0;
+}
+.fieldset .continput{
+    margin-right: 5px;
+}
+.fieldset .contlabel{
+    padding-right: 5px;
+}
+
+.error{
+  color: blue;
+  font-weight: 800;
+  margin: 0 0 40px 0;}
