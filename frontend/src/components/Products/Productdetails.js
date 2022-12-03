@@ -11,45 +11,46 @@ import Notecontext from '../context/notecontext';
 
 const Productdetails = () => {
 
-    const [data,setdata] = useState({})
+    const [data, setdata] = useState({})
+    const [count, setCount] = useState(0)
 
-    const [itemquantity,setitemquantity] = useState(0)
+    const [itemquantity, setitemquantity] = useState(0)
 
     let a = useContext(Notecontext)
 
     let id = useParams().id
 
-    const show = async (e) =>{
+    const show = async (e) => {
         let fetchstring = "/products/all/" + id
-        console.log("fetchstr" , fetchstring);
-        const res =  await fetch(fetchstring, {
-            method : "GET"  
+        console.log("fetchstr", fetchstring);
+        const res = await fetch(fetchstring, {
+            method: "GET"
         })
-    
+
         const resdata = await res.json();
-        await console.log("resdata" , resdata);
-        await setdata(resdata.data)  
-        await console.log("data" , data);
+        await console.log("resdata", resdata);
+        await setdata(resdata.data)
+        await console.log("data", data);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         show();
-    },[])
+    }, [])
 
     const navigate = useNavigate();
 
-    const addtocart = async (e) =>{
+    const addtocart = async (e) => {
         // let productdata = JSON.parse(e.target.value)
         // console.log(productdata.name);
-        let arr = a.cart 
+        let arr = a.cart
         let check = 0
-        console.log(typeof(check));
+        console.log(typeof (check));
         for (let index = 0; index < arr.length; index++) {
-            if(arr[index].name==data.productname) {
+            if (arr[index].name == data.productname) {
                 check = 1
-            }            
+            }
         }
-        if(check==0) {
+        if (check == 0) {
             // arr.push({
             //     name :  productdata.name,
             //     quantity : itemquantity
@@ -58,7 +59,7 @@ const Productdetails = () => {
             arr.push(data)
             a.cart = arr
         }
-        
+
         console.log(a.cart);
         // console.log(a.name);
         // let fetchstring = "/user/cart/addproduct/" + a.name + "/" + data._id 
@@ -67,12 +68,12 @@ const Productdetails = () => {
         //     method : "GET"  
         // })
         // console.log(data._id);
-        navigate("/cart/") 
+        navigate("/cart/")
     }
 
     return (
         <>
-           <div className="ProductDetails">
+            <div className="ProductDetails">
                 <div>
                     <img src={data.imgsrc}
                         className="CarouselImage"
@@ -93,18 +94,18 @@ const Productdetails = () => {
                         <h1>{data.price}</h1>
                         <div className="detailsBlock-3-1">
                             <div className="detailsBlock-3-1-1">
-                                <button >-</button>
-                                <input readOnly type="number" />
-                                <button >+</button>
+                                <button onClick={() => setCount(Math.max(count - 1, 0))}>-</button>
+                                {count}
+                                <button onClick={() => setCount(count + 1)}>+</button>
                             </div>
-                            <button onClick={addtocart} 
+                            <button onClick={addtocart}
                             >
                                 Add to Cart
                             </button>
                         </div>
 
                         <p>
-                            {}:
+                            { }:
                             <b className="greenColor">
                                 In Stock
                             </b>
