@@ -1,0 +1,173 @@
+.loginpage{
+  /* min-height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #7d2ae8; */
+  padding: 30px;
+  background-image: url('./registration-page-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  height: 100vh;
+}
+.registration{
+  position: relative;
+  max-width: 650px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  perspective: 2700px;
+  border-radius: 10%;
+}
+.registration .flipcover{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+}
+.registration #flip:checked ~ .flipcover{
+  transform: rotateY(-180deg);
+}
+ .registration .flipcover .frontcover,
+ .registration .flipcover .backcover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('./flip-cover-bg.jpg');
+  background-size: cover;
+}
+.flipcover .backcover{
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.registration .registrationpageforms{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.registration .formcontent{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.formcontent .loginform,
+.formcontent .signupform{
+  width: calc(100% / 2 - 25px);
+}
+.registrationpageforms .formcontent .loginpagetitle{
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}
+.registrationpageforms .formcontent .loginpagetitle:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 25px;
+  background: #7d2ae8;
+}
+.registrationpageforms .signupform  .loginpagetitle:before{
+  width: 20px;
+}
+.registrationpageforms .formcontent .registrationinputboxes{
+  margin-top: 30px;
+}
+.registrationpageforms .formcontent .inputbox{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+.formcontent .inputbox .loginforminput{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.formcontent .inputbox .loginforminput:focus,
+.formcontent .inputbox .loginforminput:valid{
+  border-color: #7d2ae8;
+}
+.formcontent .inputbox i{
+  position: absolute;
+  color: #7d2ae8;
+  font-size: 17px;
+}
+.registrationpageforms .formcontent .forgettext{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.registrationpageforms .formcontent .forgettext a{
+  text-decoration: none;
+}
+.registrationpageforms .formcontent .forgettext a:hover{
+  text-decoration: underline;
+}
+.registrationpageforms .formcontent .button{
+  color: #fff;
+  margin-top: 40px;
+}
+.registrationpageforms .formcontent .button .loginforminput{
+  color: #fff;
+  background: #7d2ae8;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.registrationpageforms .formcontent .button .loginforminput:hover{
+  background: #5b13b9;
+}
+.registrationpageforms .formcontent .loginpagelabel{
+  color: #5b13b9;
+  cursor: pointer;
+}
+.registrationpageforms .formcontent .loginpagelabel:hover{
+  text-decoration: underline;
+}
+.registrationpageforms .formcontent .logintext,
+.registrationpageforms .formcontent .signuptext{
+  text-align: center;
+  margin-top: 25px;
+}
+.registration #flip{
+  display: none;
+}
+@media (max-width: 730px) {
+  .registration .flipcover{
+    display: none;
+  }
+  .formcontent .loginform,
+  .formcontent .signupform{
+    width: 100%;
+  }
+  .formcontent .signupform{
+    display: none;
+  }
+  .registration #flip:checked ~ .registrationpageforms .signupform{
+    display: block;
+  }
+  .registration #flip:checked ~ .registrationpageforms .loginform{
+    display: none;
+  }
+}
