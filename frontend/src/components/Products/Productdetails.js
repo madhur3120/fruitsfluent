@@ -45,10 +45,13 @@ const Productdetails = () => {
         let check = 0
         console.log(typeof(check));
         for (let index = 0; index < arr.length; index++) {
-            if(arr[index].name==data.productname) {
+            // console.log(arr[index].productname);
+            if(arr[index].productname==data.productname) {
+                console.log("index" , index);
                 check = 1
             }            
         }
+        console.log("check",check);
         if(check==0) {
             // arr.push({
             //     name :  productdata.name,
