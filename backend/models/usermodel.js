@@ -14,6 +14,9 @@ const userschema = new mongoose.Schema({
     },
     token : {
         type: String
+    },
+    totalorders :{
+        type : String
     }
 })
 

@@ -21,7 +21,7 @@ const Admin_dashboard = () => {
           <div className="adrow">
             <div className="adddcol">
               <img src={user9} className="adimg" />
-              <button className="adbtn1 adddbutton">welcome admin</button>
+              <button className="adbtn1 adddbutton">WELCOME ADMIN</button>
             </div>
             <div className="adddcol">
               <img src={user4} className="adimg" />
@@ -55,7 +55,7 @@ const Admin_dashboard = () => {
                 <img src={orders2} className="adimg" />
 
                 <button className="adddbutton adbtn4">
-                  <a className='ada'> ORDERS </a>
+                  <a className='ada' href='/orders'> ORDERS </a>
                 </button>
               </div>
             </div>

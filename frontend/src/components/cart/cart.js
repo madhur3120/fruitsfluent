@@ -13,6 +13,11 @@ const Cart = () => {
     const navigate = useNavigate();
 
     const show = async (e) =>{
+
+        if(a.name=="#") {
+            navigate("/login")
+        }
+        else {
         // setdata(a.cart)
         console.log("final");
         console.log(a.cart);
@@ -30,6 +35,7 @@ const Cart = () => {
         await console.log("arr" ,arr);
         await setdata(arr)
         await console.log(data);
+        }
     }
 
     const removeitem = async (e) =>{
@@ -63,7 +69,7 @@ const Cart = () => {
           body : JSON.stringify (data)
         })
         await console.log("order");
-        // navigate("/orderplaced")
+        navigate("/orderplaced")
     }
 
     const calc = async (e) =>{
