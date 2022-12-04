@@ -2,7 +2,6 @@ import React, { useState ,useEffect, useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Notecontext from '../context/notecontext'
 import './cart.css'
-// import bg1 from './images/packet.jpg'
 
 const Cart = () => {
 
@@ -17,7 +16,17 @@ const Cart = () => {
         // setdata(a.cart)
         console.log("final");
         console.log(a.cart);
-        let arr = a.cart
+
+        let sum = 0
+        let arr = await a.cart
+        console.log(typeof(arr[0].cardsum));
+        for (let index = 0; index < arr.length; index++) {
+            sum += (arr[index].cardsum)
+        }
+
+        setsubtotal(sum)
+        settotal(sum + 40)
+
         await console.log("arr" ,arr);
         await setdata(arr)
         await console.log(data);
@@ -32,15 +41,37 @@ const Cart = () => {
         await setdata(arr)
     }
 
+    const placeorder = async (e) =>{
+        e.preventDefault() ;
+        let arr = a.cart
+        let products = ""
+        for (let index = 0; index < arr.length; index++) {
+            products += arr[index].productname 
+        }
+        const data = {
+          'username': a.name,
+          'email': a.email,
+          'products' : products ,
+          'ordertotal' :  total
+        }
+    
+        const res = await fetch("/user/placeorder", {
+          method : "POST"  , 
+          headers : {
+            "Content-Type" : "application/json"
+          },
+          body : JSON.stringify (data)
+        })
+        await console.log("order");
+        // navigate("/orderplaced")
+    }
+
     const calc = async (e) =>{
         let item = await JSON.parse(e.target.id)
         let code = await e.target.value
         let sum = 0
         await console.log("item" ,item,"code" , code);
         let arr = await a.cart
-        // await console.log(arr);
-        // arr[0].cartquantity = arr[0].cartquantity + 1
-        // await console.log(arr);
 
         for (let index = 0; index < arr.length; index++) {
             if(arr[index]._id==item._id) {
@@ -63,7 +94,7 @@ const Cart = () => {
         a.cart = await arr 
         await setdata(arr)
         
-        navigate("/cart")
+        await navigate("/cart")
     }
 
     useEffect(()=>{
@@ -86,9 +117,7 @@ const Cart = () => {
                             <li className="items even">
                             <div className="infoWrap" key={item._id}>
                                 <div className="cartSection info">
-                                    {/* <img src='./images/bg1.jpg' alt="" className="itemImg" /> */}
                                     <img src={item.imgsrc} alt="" className="itemImg" />
-                                    {/* <p className="itemNumber">#QUE-007544-002</p> */}
                                     <h3>{item.productname}</h3>
 
                                     <p>  <button onClick={calc} id={JSON.stringify(item)} value={-1}>-</button>
@@ -105,12 +134,9 @@ const Cart = () => {
 
                                 <div className="cartSection removeWrap">
                                     <button onClick={removeitem} value={item._id} className="remove">remove</button>
-                                    {/* <a href="/cart/" value = {item._id} onClick={removeitem} className="remove">x</a> */}
                                 </div>
                             </div>
-                            {/* <div className="special">
-                                <div className="specialContent">Free gift with purchase!, gift wrap, etc!!</div>
-                            </div> */}
+
                         </li>
                         )
                     })}
@@ -119,12 +145,6 @@ const Cart = () => {
 
                     </ul>
                 </div>
-
-                {/* <div className="promoCode">
-                    <label htmlFor="promo">Have A Promo Code?</label>
-                    <input type="text" name="promo" placholder="Enter Code" />
-                    <a href="#" className="btn">Apply</a>
-                </div> */}
 
                 <div className="subtotal cf">
                     <ul className="cartWrap">
@@ -135,7 +155,7 @@ const Cart = () => {
                         {/* <li className="totalRow"><span className="label">Tax</span><span className="value">$4.00</span></li> */}
                         {/* <li className='totalRow'><span className="label">Promotion</span><span className="value">$4.00</span></li> */}
                         <li className="totalRow final"><span className="label">Total</span><span className="value">{total}</span></li>
-                        <li className="totalRow"><a href="/orderplaced" className="btn continue">Checkout</a></li>
+                        <button onClick={placeorder} >Checkout</button>
                     </ul>
                 </div>
             </div>
@@ -144,3 +164,4 @@ const Cart = () => {
 }
 
 export default Cart
+

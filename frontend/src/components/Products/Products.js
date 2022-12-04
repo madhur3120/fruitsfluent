@@ -5,13 +5,7 @@ import Notecontext from '../context/notecontext';
 import { useContext ,useState , useEffect} from 'react';
 
 const Products = () => {
-    // const [items, setItems] = useState("");
 
-    // useEffect(() => {
-    //     localStorage.setItem('items', JSON.stringify(items));
-    // }, []);
-
-    // setItems("siog")
     let a = useContext(Notecontext)
     console.log(a.name);
     return (
