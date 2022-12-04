@@ -1,5 +1,6 @@
 const express = require("express");
 const user = require("../models/usermodel");
+const order = require("../models/ordermodel");
 
 const router = express.Router();
 
@@ -41,6 +42,12 @@ router.post("/login",async(req,res)=>{
             })
         }
     }
+})
+
+router.post("/placeorder",async(req,res)=>{
+    await console.log(req.body);
+    const neworder = new order({username : req.body.username,email : req.body.email,products : req.body.products,ordertotal : req.body.ordertotal})
+    const result = await neworder.save()
 })
 
 

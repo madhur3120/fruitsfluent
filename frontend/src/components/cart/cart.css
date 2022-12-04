@@ -361,3 +361,11 @@ a.remove:hover {
   letter-spacing: -.025em;
   width: 35%;
 }
+
+.cartcheckoutbtn {
+  color: white;
+  background-color: #82ca9c;
+  border-radius: 25px;
+  border: none;
+  padding: 10px;
+}

@@ -25,5 +25,4 @@ app.use("/admin",adminroute);
 
 app.use("/user",userroute)
 
-
 app.use("/products/",productroute)

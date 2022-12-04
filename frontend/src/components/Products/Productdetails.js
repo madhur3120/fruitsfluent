@@ -52,8 +52,8 @@ const Productdetails = () => {
         }
         console.log("check",check);
         if(check==0) {
-            data.cartquantity = 1
-            data.cardsum = data.productprice
+            data.cartquantity = Number(1)
+            data.cardsum = Number(data.productprice)
             arr.push(data)
             a.cart = arr
         }

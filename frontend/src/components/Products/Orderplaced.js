@@ -23,8 +23,8 @@ const Orderplaced = () => {
                         />
                     </svg>
                 </div>
-                <a href="home.html">
-                    <button className='opbutton1' type="button" href="home.html">
+                <a href="/products/all">
+                    <button className='opbutton1' type="button" href="/products/all">
                         Continue Shopping
                     </button>
                 </a>
