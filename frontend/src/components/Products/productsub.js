@@ -22,7 +22,7 @@ const Productsub = () => {
     console.log(data)
 
     return data.map((x)=>(
-        <Product product={x}></Product>
+        <Product product={x} key={x._id}></Product>
     ));
 
 }

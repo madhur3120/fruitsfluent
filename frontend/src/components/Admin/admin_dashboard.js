@@ -6,7 +6,7 @@ import user9 from "./images/user9.png"
 import stock_image from './images/stock-image.png'
 import orders2 from './images/orders2.jpg'
 import './admin_dashboard.css'
-
+import { Link } from 'react-router-dom'
 
 const Admin_dashboard = () => {
   return (
@@ -27,25 +27,25 @@ const Admin_dashboard = () => {
               <img src={user4} className="adimg" />
 
               <button className="adddbutton adbtn2">
-                <a className='ada' href='/users'> USERS </a>
+                <Link className='ada' to='/users'> USERS </Link>
               </button >
             </div>
             <div className="adddcol" >
               <img src={user7} className="adimg" />
 
               <button className="adddbutton adbtn3" style={{ "display": "block" }}>
-                <a className='ada'>
+                <Link className='ada'>
                   ADD ADMIN
-                </a>
+                </Link>
               </button>
             </div>
             <div className="adddcol">
               <img src={logout3} className="adimg" />
 
               <button className="adbtn4 adddbutton">
-                <a className='ada' href='/'>
+                <Link className='ada' to='/'>
                   LOGOUT
-                </a>
+                </Link>
               </button>
             </div>
           </div>
@@ -55,7 +55,7 @@ const Admin_dashboard = () => {
                 <img src={orders2} className="adimg" />
 
                 <button className="adddbutton adbtn4">
-                  <a className='ada' href='/orders'> ORDERS </a>
+                  <Link className='ada' to='/orders'> ORDERS </Link>
                 </button>
               </div>
             </div>
@@ -63,9 +63,9 @@ const Admin_dashboard = () => {
               <img src={user4} className="adimg" />
 
               <button className="adddbutton adbtn2">
-                <a className='ada' href="/addproduct">
+                <Link className='ada' to="/addproduct">
                   ADD PRODUCT
-                </a>
+                </Link>
               </button>
             </div>
 
@@ -73,18 +73,18 @@ const Admin_dashboard = () => {
               <img src={orders2} className="adimg" />
 
               <button className="adbtn1 adddbutton">
-                <a className='ada' href='/remove_product'>
+                <Link className='ada' to='/remove_product'>
                   REMOVE PRODUCT
-                </a>
+                </Link>
               </button>
             </div>
             <div className="adddcol" >
               <img src={stock_image} className="adimg" />
 
               <button className="adbtn5 adddbutton">
-                <a className='ada' href='/current_stock'>
+                <Link className='ada' to='/current_stock'>
                   CURRENT STOCK
-                </a>
+                </Link>
               </button>
             </div>
           </div>

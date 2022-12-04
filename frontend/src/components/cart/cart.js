@@ -161,7 +161,7 @@ const Cart = () => {
                         {/* <li className="totalRow"><span className="label">Tax</span><span className="value">$4.00</span></li> */}
                         {/* <li className='totalRow'><span className="label">Promotion</span><span className="value">$4.00</span></li> */}
                         <li className="totalRow final"><span className="label">Total</span><span className="value">{total}</span></li>
-                        <button onClick={placeorder} >Checkout</button>
+                        <button onClick={placeorder} className="cartcheckoutbtn">Checkout</button>
                     </ul>
                 </div>
             </div>

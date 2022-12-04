@@ -1,9 +1,14 @@
 import React from 'react'
 import './orderplaced.css'
 import img from './delivery.jpg'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 const Orderplaced = () => {
+    const navigate = useNavigate()
+    const func = ()=>{
+        navigate("/products/all")
+    }
     return (
         <>
             <div className='opbody'>
@@ -25,8 +30,8 @@ const Orderplaced = () => {
                         />
                     </svg>
                 </div>
-                <a href="/products/all">
-                    <button className='opbutton1' type="button" href="/products/all">
+                <a >
+                    <button className='opbutton1' type="button" onClick={func}>
                         Continue Shopping
                     </button>
                 </a>
