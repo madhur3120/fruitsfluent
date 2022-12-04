@@ -88,7 +88,7 @@ const Productdetails = () => {
                         </span>
                     </div>
                     <div className="detailsBlock-3">
-                        <h1>{data.price}</h1>
+                        <h1>Rs. {data.productprice}</h1>
                         <div className="detailsBlock-3-1">
                             {/* <div className="detailsBlock-3-1-1">
                                 <button onClick={() => setCount(Math.max(count - 1, 0))}>-</button>

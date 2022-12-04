@@ -10,19 +10,24 @@ const Removeproduct = () => {
   const [stock, setstock] = useState('');
   const [brand, setbrand] = useState('');
 
-  const a = useContext(Notecontext);
 
   const navigate = useNavigate();
   
-  const onSubmitHandler = () => {
+  const remove_product = async(e) => {
     const data = {
       'productname': productname,
       'stock': stock,
       'brand': brand,
     }
-    a.push(data)
 
-    navigate('/displayproductdetails');
+    const res = await fetch("/admin/remove_product", {
+      method : "POST"  , 
+      headers : {
+        "Content-Type" : "application/json"
+      },
+      body : JSON.stringify (data)
+    })
+    navigate('/admin_dashboard');
   }
 
   return (
@@ -42,7 +47,7 @@ const Removeproduct = () => {
             <input type="text" className='npinput' required="" onChange={e => setbrand(e.target.value)} />
             <label className='nplabel'>Brand</label>
           </div>
-          <button className='npbutton' type="submit" onClick={onSubmitHandler}>REMOVE</button>
+          <button className='npbutton' type="submit" onClick={remove_product}>REMOVE</button>
 
         </form>
       </div>

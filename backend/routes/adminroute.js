@@ -63,5 +63,18 @@ router.get("/current_stock",async(req,res)=>{
     }
 })
 
+router.post("/remove_product",async(req,res)=>{
+
+    try {
+        await productmodel.deleteOne({productname:req.body.productname,brand:req.body.brand})        
+        res.send({message: true})
+    } catch (error) {
+     console.log("error in removing product " + error); 
+     res.status(500)  
+    }
+
+})
+
+
 
 module.exports = router;
