@@ -46,28 +46,19 @@ const Productdetails = () => {
         let check = 0
         console.log(typeof (check));
         for (let index = 0; index < arr.length; index++) {
-            if (arr[index].name == data.productname) {
+            if (arr[index].productname == data.productname) {
                 check = 1
             }
         }
-        if (check == 0) {
-            // arr.push({
-            //     name :  productdata.name,
-            //     quantity : itemquantity
-
-            // })
+        console.log("check",check);
+        if(check==0) {
+            data.cartquantity = 1
+            data.cardsum = data.productprice
             arr.push(data)
             a.cart = arr
         }
 
         console.log(a.cart);
-        // console.log(a.name);
-        // let fetchstring = "/user/cart/addproduct/" + a.name + "/" + data._id 
-        // console.log("fetchstr" , fetchstring);
-        // const res =  await fetch(fetchstring, {
-        //     method : "GET"  
-        // })
-        // console.log(data._id);
         navigate("/cart/")
     }
 
@@ -93,11 +84,11 @@ const Productdetails = () => {
                     <div className="detailsBlock-3">
                         <h1>{data.price}</h1>
                         <div className="detailsBlock-3-1">
-                            <div className="detailsBlock-3-1-1">
+                            {/* <div className="detailsBlock-3-1-1">
                                 <button onClick={() => setCount(Math.max(count - 1, 0))}>-</button>
                                 {count}
                                 <button onClick={() => setCount(count + 1)}>+</button>
-                            </div>
+                            </div> */}
                             <button onClick={addtocart}
                             >
                                 Add to Cart

@@ -29,7 +29,7 @@ import Blog9 from './components/layout/Blogs/Blog9';
 import Remove_product from './components/Admin/remove_product'
 import Cld from './components/cloudinary/cld';
 import Cart from "./components/cart/cart"
-
+import Orderplaced from "./components/Products/Orderplaced"
 
 function App() {
   useEffect(() => {
@@ -72,6 +72,9 @@ function App() {
             <Route path="/blog7" element={<Blog7 />}></Route>
             <Route path="/blog8" element={<Blog8 />}></Route>
             <Route path="/blog9" element={<Blog9 />}></Route>
+
+            // order place 
+            <Route path="/orderplaced" element={<Orderplaced />}></Route>
           </Routes>
         </Router>
 
