@@ -38,8 +38,8 @@ const Home = () => {
     return (
         <>
             <div className='banner'>
-                <p>Welcome to Nutkart</p>
-                <h1>One Stop for all your Dry Fruits Needs</h1>
+                <h1>Welcome to Nutkart</h1>
+                <h2>One Stop for all your Dry Fruits Needs</h2>
                 <a href='/about'>
                     <button>
                         About Us
