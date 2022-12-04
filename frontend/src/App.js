@@ -30,6 +30,9 @@ import Remove_product from './components/Admin/remove_product'
 import Cld from './components/cloudinary/cld';
 import Cart from "./components/cart/cart"
 import Orderplaced from "./components/Products/Orderplaced"
+import Orders from "./components/Admin/orders"
+import Users from "./components/Admin/users"
+import Current_stock from './components/Admin/current_stock';
 
 function App() {
   useEffect(() => {
@@ -75,6 +78,9 @@ function App() {
 
             // order place 
             <Route path="/orderplaced" element={<Orderplaced />}></Route>
+            <Route path="/orders" element={<Orders/>}></Route>
+            <Route path="/users" element={<Users/>}></Route>
+            <Route path="/current_stock" element={<Current_stock/>}></Route>
           </Routes>
         </Router>
 

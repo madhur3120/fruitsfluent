@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login.css'
-import { useState ,useContext } from 'react';
+import { useState ,useContext ,useEffect} from 'react';
 import { useNavigate } from "react-router-dom"
 import Notecontext from '../../context/notecontext';
 
@@ -13,6 +13,17 @@ const Login = () => {
   const navigate = useNavigate()
   let a = useContext(Notecontext);
 
+  useEffect(()=>{
+    show();
+  },[])
+
+
+  const show = async (e) =>{
+    if(a.name!="#") {
+      navigate("/")
+    }
+  }
+  
   const register = async (e) =>{
     e.preventDefault() ;
 
@@ -60,8 +71,10 @@ const Login = () => {
       body : JSON.stringify (data)
     })
     const resdata  = await res.json();
-
-    if(resdata.msg=="0") {
+    if(resdata.msg=="admin") {
+      navigate("/admin_dashboard")
+    }
+    else if(resdata.msg=="0") {
       alert("email not registered")
     }
     else if(resdata.msg=="00") {

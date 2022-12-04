@@ -1,6 +1,8 @@
 import React from 'react'
 import './orderplaced.css'
 import img from './delivery.jpg'
+
+
 const Orderplaced = () => {
     return (
         <>
