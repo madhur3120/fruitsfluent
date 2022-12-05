@@ -116,7 +116,7 @@ const Login = () => {
                   <div className="button inputbox">
                     <input onClick={login} type="submit" value="LogIn" className='loginforminput' />
                   </div>
-                  <div className="logintext">Don't have an account? <label for="flip" className='loginpagelabel'>Sigup now</label></div>
+                  <div className="logintext">Don't have an account? <label htmlFor="flip" className='loginpagelabel'>Sigup now</label></div>
                 </div>
               </form>
             </div>
@@ -136,7 +136,7 @@ const Login = () => {
                   <div className="button inputbox">
                     <input type="submit" onClick={register} value="SignUp" className='loginforminput' />
                   </div>
-                  <div className="signuptext">Already have an account? <label for="flip" className='loginpagelabel'>Login now</label></div>
+                  <div className="signuptext">Already have an account? <label htmlFor="flip" className='loginpagelabel'>Login now</label></div>
                 </div>
               </form>
             </div>
