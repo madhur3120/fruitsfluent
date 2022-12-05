@@ -7,8 +7,29 @@ import stock_image from './images/stock-image.png'
 import orders2 from './images/orders2.jpg'
 import './admin_dashboard.css'
 import { Link } from 'react-router-dom'
+import { useEffect ,useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Notecontext from '../context/notecontext'
+
 
 const Admin_dashboard = () => {
+
+  const navigate = useNavigate()
+  const a = useContext(Notecontext)
+
+  const show = async (e) =>{
+
+    console.log(a.name);
+    if(a.name=="#") {
+      navigate("/login")
+    }
+  }
+
+useEffect(()=>{
+    show();
+},[])
+
+
   return (
 
     <div className="adddbody">
