@@ -3,6 +3,7 @@ import './Login.css'
 import { useState ,useContext ,useEffect} from 'react';
 import { useNavigate } from "react-router-dom"
 import Notecontext from '../../context/notecontext';
+import validate from "validator"
 
 const Login = () => {
 
@@ -27,67 +28,83 @@ const Login = () => {
   const register = async (e) =>{
     e.preventDefault() ;
 
-    const data = {
-      'name': name,
-      'email': email,
-      'password': password
+    if(validate.isEmail(email) && (password.length>=6 && password.length<=20) ) {
+      const data = {
+        'name': name,
+        'email': email,
+        'password': password
+      }
+  
+      const res = await fetch("/user/register", {
+        method : "POST"  , 
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify (data)
+      })
+      const resdata  = await res.json();
+  
+      if(resdata.msg=="1") {
+        a.name = name
+        a.email = email
+        console.log(a);
+        alert("you have been successfully registered")
+        navigate("/")
+      }
+      else {
+        alert("email already registered")
+        navigate("/login")
+      }
     }
 
-    const res = await fetch("/user/register", {
-      method : "POST"  , 
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body : JSON.stringify (data)
-    })
-    const resdata  = await res.json();
-
-    if(resdata.msg=="1") {
-      a.name = name
-      a.email = email
-      console.log(a);
-      alert("you have been successfully registered")
-      navigate("/")
-    }
     else {
-      alert("email already registered")
-      navigate("/login")
+      alert("incorrect entry format")
     }
+
+  
   }
 
   const login = async (e) =>{
     e.preventDefault() ;
-    const data = {
-      'email': email,
-      'password': password
+
+    if(validate.isEmail(email) && (password.length>=6 && password.length<=20) ) {
+
+      const data = {
+        'email': email,
+        'password': password
+      }
+  
+      // console.log(data);
+      const res = await fetch("/user/login", {
+        method : "POST" , 
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify (data)
+      })
+      const resdata  = await res.json();
+      if(resdata.msg=="admin") {
+        navigate("/admin_dashboard")
+      }
+      else if(resdata.msg=="0") {
+        alert("email not registered")
+      }
+      else if(resdata.msg=="00") {
+        alert("incorrect password")
+      }
+      else {
+        // console.log(resdata.name);
+        a.name = resdata.name
+        console.log(a.name);
+        a.email = email
+        alert("click ok to continue")
+        navigate("/")
+      }
+    } 
+    else {
+      alert("incorrect entry format")
     }
 
-    // console.log(data);
-    const res = await fetch("/user/login", {
-      method : "POST" , 
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body : JSON.stringify (data)
-    })
-    const resdata  = await res.json();
-    if(resdata.msg=="admin") {
-      navigate("/admin_dashboard")
-    }
-    else if(resdata.msg=="0") {
-      alert("email not registered")
-    }
-    else if(resdata.msg=="00") {
-      alert("incorrect password")
-    }
-    else {
-      // console.log(resdata.name);
-      a.name = resdata.name
-      console.log(a.name);
-      a.email = email
-      alert("click ok to continue")
-      navigate("/")
-    }
   }
 
   return (
