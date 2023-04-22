@@ -35,7 +35,7 @@ import Orders from "./components/Admin/orders"
 import User_orders from "./components/User/user_orders"
 import Users from "./components/Admin/users"
 import Current_stock from './components/Admin/current_stock';
-
+import PageNotFound from './components/PageNotFound/PageNotFound';
 function App() {
   useEffect(() => {
     WebFont.load({
@@ -68,6 +68,7 @@ function App() {
             <Route path="/cld" element={<Cld />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
 
+
             //Blogs Routes
             <Route path="/blogs" element={<Blogs />}></Route>
             <Route path="/blog1" element={<Blog1 />}></Route>
@@ -80,12 +81,13 @@ function App() {
             <Route path="/blog8" element={<Blog8 />}></Route>
             <Route path="/blog9" element={<Blog9 />}></Route>
 
-            // order place 
+            // order place
             <Route path="/orderplaced" element={<Orderplaced />}></Route>
-            <Route path="/orders" element={<Orders/>}></Route>
-            <Route path="/User_orders" element={<User_orders/>}></Route>
-            <Route path="/users" element={<Users/>}></Route>
-            <Route path="/current_stock" element={<Current_stock/>}></Route>
+            <Route path="/orders" element={<Orders />}></Route>
+            <Route path="/User_orders" element={<User_orders />}></Route>
+            <Route path="/users" element={<Users />}></Route>
+            <Route path="/current_stock" element={<Current_stock />}></Route>
+            <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
         </Router>
 

@@ -20,7 +20,7 @@ const About = () => {
                         <p className='aboutuspara'>
                             100% PURE NUTKART DRY FRIUTS</p>
                         <p className='aboutuspara'>
-                            "Our journey began in the winter of 2021 when our promoters from IT and banking background started working on Nutkhut. We launched Nutkhut January 2021 as a healthier alternative to snacking."
+                            "Our journey began in the winter of 2022 when we working on NutKart. We launched Nutkhut January 2022 as a healthier alternative to snacking."
                         </p>
                         <p className='aboutuspara'> Yes, we do have some of our favourites Pistachio, Walnut, California Almonds, Red and Black Raisinare delicious and we snack on them daily.</p>
                     </div>

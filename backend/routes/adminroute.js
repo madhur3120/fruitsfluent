@@ -8,13 +8,13 @@ let urlencodedparser = bodyParser.urlencoded({ extended: false })
 
 const multer = require('multer')
 
-const storage  = multer.diskStorage({
-    destination: (req,file,cb)=>{
-        cb(null,'../frontend/public/images')
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '../frontend/public/images')
     },
-    filename : (req,file,cb) =>{
+    filename: (req, file, cb) => {
         console.log(file);
-        cb(null,(file.originalname))
+        cb(null, (file.originalname))
     }
 })
 
@@ -22,17 +22,17 @@ const upload = multer({ storage: storage })
 
 const router = express.Router();
 
-router.post("/addproductback",upload.single('productimg'),urlencodedparser,async(req,res)=> {
+router.post("/addproductback", upload.single('productimg'), urlencodedparser, async (req, res) => {
 
     try {
         console.log(req.file.originalname);
-        let imgname = "/images/" + req.file.originalname 
-        const newproduct = new productmodel({productname : req.body.productname,productprice : req.body.productprice,stock : req.body.stock,brand : req.body.brand,imgsrc:imgname})
+        let imgname = "/images/" + req.file.originalname
+        const newproduct = new productmodel({ productname: req.body.productname, productprice: req.body.productprice, stock: req.body.stock, brand: req.body.brand, imgsrc: imgname })
         const result = await newproduct.save()
-        res.send({message: true})
+        res.send({ message: true })
     } catch (error) {
-     console.log("error in adding product " + error); 
-     res.status(500)  
+        console.log("error in adding product " + error);
+        res.status(500)
     }
 })
 
@@ -56,11 +56,11 @@ router.post("/addproductback",upload.single('productimg'),urlencodedparser,async
  *                     $ref: '#/components/schemas/Order'
  */
 
-router.get("/orders",async(req,res)=>{
+router.get("/orders", async (req, res) => {
     try {
-        ordermodel.find({},(err,data)=>{
+        ordermodel.find({}, (err, data) => {
             res.json({
-                data:data
+                data: data
             })
         })
     } catch (error) {
@@ -89,11 +89,11 @@ router.get("/orders",async(req,res)=>{
  *                     $ref: '#/components/schemas/User'
  */
 
-router.get("/users",async(req,res)=>{
+router.get("/users", async (req, res) => {
     try {
-        usermodel.find({},(err,data)=>{
+        usermodel.find({}, (err, data) => {
             res.json({
-                data:data
+                data: data
             })
         })
     } catch (error) {
@@ -114,11 +114,11 @@ router.get("/users",async(req,res)=>{
  *         description: Array of current stock
  */
 
-router.get("/current_stock",async(req,res)=>{
+router.get("/current_stock", async (req, res) => {
     try {
-        productmodel.find({},(err,data)=>{
+        productmodel.find({}, (err, data) => {
             res.json({
-                data:data
+                data: data
             })
         })
     } catch (error) {
@@ -147,16 +147,16 @@ router.get("/current_stock",async(req,res)=>{
  *         description: Internal server error
  */
 
-router.post("/remove_product",async(req,res)=>{
+router.post("/remove_product", async (req, res) => {
 
     try {
-        await productmodel.deleteOne({"productname" : req.body.productname})        
+        await productmodel.deleteOne({ "productname": req.body.productname })
         return res
             .status(200)
-            .json({message: true})
+            .json({ message: true })
     } catch (error) {
-     console.log("error in removing product " + error); 
-     res.status(500)  
+        console.log("error in removing product " + error);
+        res.status(500)
     }
 
 })

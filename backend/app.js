@@ -8,6 +8,7 @@ let urlencodedparser = bodyParser.urlencoded({ extended: false })
 const cookieparser = require('cookie-parser')
 const bcrypt = require("bcryptjs")
 const fs = require('fs')
+const cors = require('cors')
 
 const product = require("./models/productmodel")
 
@@ -15,13 +16,27 @@ const adminroute = require("./routes/adminroute")
 const userroute = require("./routes/userroute")
 const productroute = require("./routes/productroute")
 
-app.use( express.static( "public" ) );
+app.use(express.static("public"));
 
-app.listen(config.port,()=>{
-    console.log("server connected at port : ",config.port);
+app.listen(config.port, () => {
+    console.log("server connected at port : ", config.port);
 })
 
 database()
+
+app.use(cors());
+
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+
+    next();
+}); //cors error
 
 // const multer = require('multer')
 // const storage  = multer.diskStorage({
@@ -86,8 +101,8 @@ app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use(bodyParser.json());
 
-app.use("/admin",adminroute);
+app.use("/admin", adminroute);
 
-app.use("/user",userroute)
+app.use("/user", userroute)
 
-app.use("/products/",productroute)
+app.use("/products/", productroute)
