@@ -1,21 +1,23 @@
 const mongoose = require("mongoose")
 
 const productschema = new mongoose.Schema({
-    productname : {
-        type : String
+    productname: {
+        type: String
     },
-    productprice : {
-        type : String        
+    productprice: {
+        type: String
     },
-    stock : {
-        type : String
+    stock: {
+        type: String
     },
-    brand : {
-        type : String
+    brand: {
+        type: String
     },
-    imgsrc : {
-        type : String
+    imgsrc: {
+        type: String
     }
 })
 
-module.exports = mongoose.model("products",productschema)
+productschema.index({ productname: 1 });
+
+module.exports = mongoose.model("products", productschema)

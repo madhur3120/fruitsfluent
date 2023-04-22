@@ -19,10 +19,14 @@ const Admin_dashboard = () => {
 
   const show = async (e) =>{
 
-    console.log(a.name);
     if(a.name=="#") {
       navigate("/login")
     }
+  }
+
+  const func_logout = async(e) =>{
+    a.name = "#"
+    navigate('/logout')
   }
 
 useEffect(()=>{
@@ -64,7 +68,7 @@ useEffect(()=>{
               <img src={logout3} className="adimg" />
 
               <button className="adbtn4 adddbutton">
-                <Link className='ada' to='/'>
+                <Link className='ada' to='/logout' onClick={func_logout}>
                   LOGOUT
                 </Link>
               </button>

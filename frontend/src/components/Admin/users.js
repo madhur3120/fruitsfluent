@@ -12,7 +12,6 @@ const Users = () => {
         })
     
         const resdata = await res.json();
-        console.log(resdata);
         setData(resdata.data)  
     }
 
@@ -29,6 +28,7 @@ const Users = () => {
   <tr>
     <th>User</th>
     <th>Email</th>
+    <th>Address</th>
     <th>TotalOrders</th>
   </tr>
 
@@ -37,6 +37,7 @@ const Users = () => {
         <tr>
             <td>{user.name}</td>
             <td>{user.email}</td>
+            <td>{user.address}</td>
             <td>{user.totalorders}</td>
         </tr> 
     )

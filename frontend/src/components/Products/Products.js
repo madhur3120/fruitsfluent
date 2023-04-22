@@ -7,7 +7,6 @@ import { useContext ,useState , useEffect} from 'react';
 const Products = () => {
 
     let a = useContext(Notecontext)
-    console.log(a.name);
     return (
         <>
             <h1 className='homeHeading'>Products Page </h1>

@@ -10,6 +10,7 @@ const Login = () => {
   const [name, setname] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
+  const [address,setaddress] = useState('')
 
   const navigate = useNavigate()
   let a = useContext(Notecontext);
@@ -32,6 +33,7 @@ const Login = () => {
       const data = {
         'name': name,
         'email': email,
+        'address' : address ,
         'password': password
       }
   
@@ -47,7 +49,6 @@ const Login = () => {
       if(resdata.msg=="1") {
         a.name = name
         a.email = email
-        console.log(a);
         alert("you have been successfully registered")
         navigate("/")
       }
@@ -74,7 +75,6 @@ const Login = () => {
         'password': password
       }
   
-      // console.log(data);
       const res = await fetch("/user/login", {
         method : "POST" , 
         headers : {
@@ -82,8 +82,12 @@ const Login = () => {
         },
         body : JSON.stringify (data)
       })
+      
       const resdata  = await res.json();
+
       if(resdata.msg=="admin") {
+        a.name = resdata.name
+        a.email = email
         navigate("/admin_dashboard")
       }
       else if(resdata.msg=="0") {
@@ -93,9 +97,7 @@ const Login = () => {
         alert("incorrect password")
       }
       else {
-        // console.log(resdata.name);
         a.name = resdata.name
-        console.log(a.name);
         a.email = email
         alert("click ok to continue")
         navigate("/")
@@ -146,6 +148,10 @@ const Login = () => {
                   </div>
                   <div className="inputbox">
                     <input type="text" placeholder="Enter your email" required className='loginforminput' onChange={e => setemail(e.target.value)}/>
+                  </div>
+                  <div className="inputbox">
+                    <input type="text" placeholder="Enter your 
+                    Address" required className='loginforminput' onChange={e => setaddress(e.target.value)} />
                   </div>
                   <div className="inputbox">
                     <input type="password" placeholder="Enter your password" required className='loginforminput' onChange={e => setpassword(e.target.value)}/>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import "./orders.css"
-import  { useState , useContext} from 'react'
+import  { useState } from 'react'
 
 const Current_stock = () => {
 
@@ -12,7 +12,6 @@ const Current_stock = () => {
         })
     
         const resdata = await res.json();
-        console.log(resdata);
         setData(resdata.data)  
     }
 

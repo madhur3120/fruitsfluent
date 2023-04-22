@@ -22,15 +22,12 @@ const Productdetails = () => {
 
     const show = async (e) => {
         let fetchstring = "/products/all/" + id
-        console.log("fetchstr", fetchstring);
         const res = await fetch(fetchstring, {
             method: "GET"
         })
 
         const resdata = await res.json();
-        await console.log("resdata", resdata);
         await setdata(resdata.data)
-        await console.log("data", data);
     }
 
     useEffect(() => {
@@ -41,21 +38,17 @@ const Productdetails = () => {
 
     const addtocart = async (e) => {
         // let productdata = JSON.parse(e.target.value)
-        // console.log(productdata.name);
-        console.log("name" , a.name);
         if(a.name=="#") {
             navigate("/login")
         }
         else {
             let arr = a.cart
             let check = 0
-            console.log(typeof (check));
             for (let index = 0; index < arr.length; index++) {
                 if (arr[index].productname == data.productname) {
                     check = 1
                 }
             }
-            console.log("check",check);
             if(check==0) {
                 data.cartquantity = Number(1)
                 data.cardsum = Number(data.productprice)
@@ -63,7 +56,6 @@ const Productdetails = () => {
                 a.cart = arr
             }
     
-            console.log(a.cart);
             navigate("/cart/")
         }
     }

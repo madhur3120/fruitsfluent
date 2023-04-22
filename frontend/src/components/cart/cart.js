@@ -19,12 +19,9 @@ const Cart = () => {
         }
         else {
         // setdata(a.cart)
-        console.log("final");
-        console.log(a.cart);
 
         let sum = 0
         let arr = await a.cart
-        console.log(typeof(arr[0].cardsum));
         for (let index = 0; index < arr.length; index++) {
             sum += (arr[index].cardsum)
         }
@@ -32,15 +29,12 @@ const Cart = () => {
         setsubtotal(sum)
         settotal(sum + 40)
 
-        await console.log("arr" ,arr);
         await setdata(arr)
-        await console.log(data);
         }
     }
 
     const removeitem = async (e) =>{
         let arr = a.cart
-        await console.log(arr);
         let id = e.target.value
         arr = await arr.filter(item => item._id!==id) 
         a.cart = arr
@@ -68,7 +62,6 @@ const Cart = () => {
           },
           body : JSON.stringify (data)
         })
-        await console.log("order");
         navigate("/orderplaced")
     }
 
@@ -76,7 +69,6 @@ const Cart = () => {
         let item = await JSON.parse(e.target.id)
         let code = await e.target.value
         let sum = 0
-        await console.log("item" ,item,"code" , code);
         let arr = await a.cart
 
         for (let index = 0; index < arr.length; index++) {

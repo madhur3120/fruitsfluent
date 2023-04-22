@@ -1,8 +1,6 @@
-import { React, useState, useContext } from 'react'
+import { React, useState } from 'react'
 import './newproduct.css'
 import { useNavigate } from "react-router-dom"
-import Notecontext from '../context/notecontext'
-import Footer from '../layout/Footer/Footer'
 
 const Newproduct = () => {
 
@@ -10,41 +8,35 @@ const Newproduct = () => {
   const [productprice, setproductprice] = useState('');
   const [stock, setstock] = useState('');
   const [brand, setbrand] = useState('');
-  const [imgsrc, setimgsrc] = useState('');
+  const [productimg,setproductimg] = useState('') ;
 
   const navigate = useNavigate();
   
   const postdata = async (e) =>{
     e.preventDefault() ;
 
-    console.log("here");
+    let data = new FormData() ;
 
-    const data = {
-      'productname': productname,
-      'productprice': productprice,
-      'stock': stock,
-      'brand': brand,
-      'imgsrc' : imgsrc
-    }
+    data.append("productname",productname);
+    data.append("productprice",productprice) ;
+    data.append("stock",stock) ;
+    data.append("brand",brand) ;
+    data.append("productimg",productimg)
+
 
     const res = await fetch("/admin/addproductback", {
-      method : "POST"  , 
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body : JSON.stringify (data)
+      method : "POST"  ,
+      body : (data)
     })
 
-    console.log(await res.json())
 
     if(res.ok){
-
       alert("product successfully added")
       navigate('/admin_dashboard');
-      console.log("done")
     }
-
-    // a.push(data)
+    else {
+      navigate('/addproduct')
+    }
   }
 
   return (
@@ -69,8 +61,8 @@ const Newproduct = () => {
             <label className='nplabel'>Brand</label>
           </div>
           <div className="npproduct-detail-box">
-            <input type="text" className='npinput' required="" onChange={e => setimgsrc(e.target.value)} />
-            <label className='nplabel'>Imgsrc</label>
+            <input type="file" name = "productimg" className='npinput' required="" onChange={e => setproductimg(e.target.files[0])}/>
+            <label className='nplabel'>Image</label>
           </div>
           <button className='npbutton' type="submit" onClick={postdata}>addproduct</button>
 

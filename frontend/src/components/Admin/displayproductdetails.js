@@ -8,7 +8,6 @@ const Displayproductdetail = () => {
 
     const a = useContext(Notecontext);
 
-    console.log(a);
 
     return (
         <>

@@ -16,6 +16,7 @@ import Notestate from './components/context/notestate';
 import Productdetails from './components/Products/Productdetails';
 import Login from './components/layout/Login/Login';
 import Admin_dashboard from './components/Admin/admin_dashboard';
+import User_dashboard from './components/User/user_dashboard';
 import Blogs from './components/layout/Blogs/Blogs';
 import Blog1 from './components/layout/Blogs/Blog1';
 import Blog2 from './components/layout/Blogs/Blog2';
@@ -31,6 +32,7 @@ import Cld from './components/cloudinary/cld';
 import Cart from "./components/cart/cart"
 import Orderplaced from "./components/Products/Orderplaced"
 import Orders from "./components/Admin/orders"
+import User_orders from "./components/User/user_orders"
 import Users from "./components/Admin/users"
 import Current_stock from './components/Admin/current_stock';
 
@@ -59,7 +61,9 @@ function App() {
             <Route path="/products/all/:id" element={<Productdetails />}></Route>
             <Route path="/nutty-almonds" element={<Productdetails />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/logout" element={<Login />}></Route>
             <Route path="/admin_dashboard" element={<Admin_dashboard />}></Route>
+            <Route path="/user_dashboard" element={<User_dashboard />}></Route>
             <Route path="/remove_product" element={<Remove_product />}></Route>
             <Route path="/cld" element={<Cld />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
@@ -79,6 +83,7 @@ function App() {
             // order place 
             <Route path="/orderplaced" element={<Orderplaced />}></Route>
             <Route path="/orders" element={<Orders/>}></Route>
+            <Route path="/User_orders" element={<User_orders/>}></Route>
             <Route path="/users" element={<Users/>}></Route>
             <Route path="/current_stock" element={<Current_stock/>}></Route>
           </Routes>

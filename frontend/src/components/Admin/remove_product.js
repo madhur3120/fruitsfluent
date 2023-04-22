@@ -18,7 +18,6 @@ const Removeproduct = () => {
       'stock': stock,
       'brand': brand,
     }
-    console.log("test 2");
     const res = await fetch("/admin/remove_product", {
       method : "POST"  , 
       headers : {
@@ -26,12 +25,9 @@ const Removeproduct = () => {
       },
       body : JSON.stringify (data)
     })
-    console.log("test 1");
+
     const resdata  = await res.json();
-    // await console.log("back at front");
-    console.log(resdata);
     navigate('/admin_dashboard');
-    console.log("test 3");
   }
 
   return (

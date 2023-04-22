@@ -15,21 +15,21 @@ const product =
 const product2 = {
     name: "Happilo  Ajwadates",
     imgsrc: "/images/happilo-ajwadates.jpg",
-    price: "399",
+    productprice: "399",
     review: "486",
     _id: "/products/all/638af578e4874cfdafc0923a",
 };
 const product3 = {
     name: "Himalayan Almonds",
     imgsrc: "/images/himalayan-almonds.jpg",
-    price: "499",
+    productprice: "499",
     review: "523",
     _id: "/products/all/638cad554138edaa52fe9c4e",
 };
 const product4 = {
     name: "Pistas",
     imgsrc: "/images/nutraj-walnut1.jpg",
-    price: "250",
+    productprice: "250",
     review: "523",
     _id: "/products/all/638cac3f4138edaa52fe9c47",
 };
