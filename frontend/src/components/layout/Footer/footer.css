@@ -171,6 +171,16 @@
       left: 100%;
     }
   }
+  .footerImageLogo{
+    width: 240px;
+    height:250px;
+  }
+  @media (max-width: 768px) {
+    .footerImageLogo {
+      width: 100%;
+      height:auto;
+  }
+  }
   
   @media (max-width: 700px){
     .footer1{

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './footer.css'
-
+import logo from '../../../images/logoftr.png'
 class Footer extends Component {
     render() {
         return (
             <div className="footer1">
                 <div className="footerrow">
                     <div className="footercolumn">
-
+                        <img className='footerImageLogo' src={logo} />
                     </div>
                     <div className="footercolumn">
                         <h2>Office<div className="highlight1"><span className='footerspan'></span></div></h2>

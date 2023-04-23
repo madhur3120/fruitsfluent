@@ -15,7 +15,6 @@ const router = express.Router()
  */
 
 router.get("/all", async (req, res) => {
-    console.log('hello')
     try {
         const data = await productmodel.find({})
             .lean() // use plain JavaScript objects instead of Mongoose documents
