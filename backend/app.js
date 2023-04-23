@@ -25,14 +25,8 @@ database()
 
 // app.use(cors());
 app.use(cors({
-    origin: "https://fruitsfluent.vercel.app/"
+    origin: "https://fruitsfluent.vercel.app"
 }));
-
-
-app.use((req, res, next) => {
-    res.setHeader('Referrer-Policy', 'no-referrer');
-    next();
-});
 
 
 // const multer = require('multer')
@@ -56,16 +50,16 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
 
 //protect against cross-site scripting (XSS) attacks
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            imgSrc: ["'self'", "data:"],
-        },
-    })
-);
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: ["'self'"],
+//             scriptSrc: ["'self'", "'unsafe-inline'"],
+//             styleSrc: ["'self'", "'unsafe-inline'"],
+//             imgSrc: ["'self'", "data:"],
+//         },
+//     })
+// );
 
 // Define Swagger options
 const swaggerOptions = {
