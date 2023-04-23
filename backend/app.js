@@ -24,7 +24,10 @@ app.listen(config.port, () => {
 
 database()
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: "https://nutkart-frontend.onrender.com"
+}));
 
 
 app.use((req, res, next) => {
