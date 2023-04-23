@@ -17,7 +17,6 @@ const userroute = require("./routes/userroute")
 const productroute = require("./routes/productroute")
 
 app.use(express.static("public"));
-
 app.listen(config.port, () => {
     console.log("server connected at port : ", config.port);
 })
@@ -26,7 +25,7 @@ database()
 
 // app.use(cors());
 app.use(cors({
-    origin: "https://nutkart-frontend.onrender.com"
+    origin: "https://fruitsfluent.vercel.app/"
 }));
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './footer.css'
 
 class Footer extends Component {
@@ -22,10 +22,10 @@ class Footer extends Component {
                     <div className="footercolumn">
                         <h2>Links<div className="highlight1"><span className='footerspan'></span></div></h2>
                         <ul className='footerul'>
-                        <li className='footerli'><Link className='ada' to='/'>Home</Link></li>
-                        <li className='footerli'><Link className='ada' to='/user_dashboard'>Account</Link></li>
-                        <li className='footerli'><Link className='ada' to='/contact'>Contact us</Link></li>
-                        <li className='footerli'><Link className='ada' to='/blogs'>Blogs</Link></li>                
+                            <li className='footerli'><Link className='ada' to='/'>Home</Link></li>
+                            <li className='footerli'><Link className='ada' to='/user_dashboard'>Account</Link></li>
+                            <li className='footerli'><Link className='ada' to='/contact'>Contact us</Link></li>
+                            <li className='footerli'><Link className='ada' to='/blogs'>Blogs</Link></li>
                         </ul>
                     </div>
 
