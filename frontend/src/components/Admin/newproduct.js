@@ -24,7 +24,7 @@ const Newproduct = () => {
     data.append("productimg",productimg)
 
 
-    const res = await fetch("/admin/addproductback", {
+    const res = await fetch("https://nutkart-backend.onrender.com/admin/addproductback", {
       method : "POST"  ,
       body : (data)
     })

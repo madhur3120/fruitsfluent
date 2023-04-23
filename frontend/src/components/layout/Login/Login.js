@@ -37,7 +37,7 @@ const Login = () => {
         'password': password
       }
   
-      const res = await fetch("/user/register", {
+      const res = await fetch("https://nutkart-backend.onrender.com/user/register", {
         method : "POST"  , 
         headers : {
           "Content-Type" : "application/json"
@@ -75,7 +75,7 @@ const Login = () => {
         'password': password
       }
   
-      const res = await fetch("/user/login", {
+      const res = await fetch("https://nutkart-backend.onrender.com/user/login", {
         method : "POST" , 
         headers : {
           "Content-Type" : "application/json"

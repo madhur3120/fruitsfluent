@@ -15,7 +15,7 @@ const Cart = () => {
     const show = async (e) =>{
 
         if(a.name=="#") {
-            navigate("/login")
+            navigate("https://nutkart-backend.onrender.com/login")
         }
         else {
         // setdata(a.cart)
@@ -55,7 +55,7 @@ const Cart = () => {
           'ordertotal' :  total
         }
     
-        const res = await fetch("/user/placeorder", {
+        const res = await fetch("https://nutkart-backend.onrender.com/user/placeorder", {
           method : "POST"  , 
           headers : {
             "Content-Type" : "application/json"

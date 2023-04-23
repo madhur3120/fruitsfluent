@@ -21,7 +21,7 @@ const Productdetails = () => {
     let id = useParams().id
 
     const show = async (e) => {
-        let fetchstring = "/products/all/" + id
+        let fetchstring = "https://nutkart-backend.onrender.com/products/all/" + id
         const res = await fetch(fetchstring, {
             method: "GET"
         })

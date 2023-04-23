@@ -15,7 +15,7 @@ const User_orders = () => {
     }
 
     const show = async (e) =>{
-        const res =  await fetch("/user/orders", {
+        const res =  await fetch("https://nutkart-backend.onrender.com/user/orders", {
             method : "POST"  ,
             headers : {
                 "Content-Type" : "application/json"
