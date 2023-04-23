@@ -15,7 +15,11 @@ const productschema = new mongoose.Schema({
     },
     imgsrc: {
         type: String
+    },
+    imgsrc2: {
+        type: String
     }
+
 })
 
 productschema.index({ productname: 1 });

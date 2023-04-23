@@ -13,7 +13,7 @@ const options = {
 const Product = ({ product }) => {
     return (
         <Link className='productCard' to={product._id}>
-            <img src={product.imgsrc} alt={product.productname} />
+            <img src={product.imgsrc2} alt={product.productname} />
             {/* <p>{product.imgsrc}</p> */}
             <p>{product.productname}</p>
             <div>

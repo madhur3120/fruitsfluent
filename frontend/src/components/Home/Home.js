@@ -6,32 +6,32 @@ import Product from './Product.js'
 const product =
 
 {
-    name: "Nutty MixedBerries",
-    imgsrc: "/images/nutty-mixedberries.jpg",
-    productprice: "299",
+    name: "happilo-pista",
+    imgsrc2: "http://res.cloudinary.com/dylanvdcg/image/upload/v1682190734/NutKart/l7wfq7wbxfshogpysjl6.jpg",
+    productprice: "400",
     review: "123",
-    _id: "/products/all/6368115a791e8944a1c733b6",
+    _id: "/products/all/6444318d5b850fc1b0c37993",
 };
 const product2 = {
-    name: "Happilo  Ajwadates",
-    imgsrc: "/images/happilo-ajwadates.jpg",
-    productprice: "399",
+    name: "rostaa-hazelnut",
+    imgsrc2: "http://res.cloudinary.com/dylanvdcg/image/upload/v1682191502/NutKart/klqru6zdedmmwf4ptmte.jpg",
+    productprice: "340",
     review: "486",
-    _id: "/products/all/638af578e4874cfdafc0923a",
+    _id: "/products/all/6444348edea0bf49eb32b717",
 };
 const product3 = {
-    name: "Himalayan Almonds",
-    imgsrc: "/images/himalayan-almonds.jpg",
-    productprice: "499",
+    name: "himalayan-almonds",
+    imgsrc2: "http://res.cloudinary.com/dylanvdcg/image/upload/v1682192182/NutKart/htdooehnbkepftxwoghb.jpg",
+    productprice: "349",
     review: "523",
-    _id: "/products/all/638cad554138edaa52fe9c4e",
+    _id: "/products/all/64443735ded0a73a7e43620e",
 };
 const product4 = {
-    name: "Pistas",
-    imgsrc: "/images/nutraj-walnut1.jpg",
-    productprice: "250",
+    name: "Walnut-Kernel",
+    imgsrc2: "http://res.cloudinary.com/dylanvdcg/image/upload/v1682193539/NutKart/jmzusrhmosyoe4yn3bil.webp",
+    productprice: "599",
     review: "523",
-    _id: "/products/all/638cac3f4138edaa52fe9c47",
+    _id: "/products/all/64443c831949f88d8dfdb9d4",
 };
 
 const Home = () => {

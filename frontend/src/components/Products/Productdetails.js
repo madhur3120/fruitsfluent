@@ -38,7 +38,7 @@ const Productdetails = () => {
 
     const addtocart = async (e) => {
         // let productdata = JSON.parse(e.target.value)
-        if(a.name=="#") {
+        if (a.name == "#") {
             navigate("/login")
         }
         else {
@@ -49,13 +49,13 @@ const Productdetails = () => {
                     check = 1
                 }
             }
-            if(check==0) {
+            if (check == 0) {
                 data.cartquantity = Number(1)
                 data.cardsum = Number(data.productprice)
                 arr.push(data)
                 a.cart = arr
             }
-    
+
             navigate("/cart/")
         }
     }
@@ -64,7 +64,7 @@ const Productdetails = () => {
         <>
             <div className="ProductDetails">
                 <div>
-                    <img src={data.imgsrc}
+                    <img src={data.imgsrc2}
                         className="CarouselImage"
                     />
                 </div>

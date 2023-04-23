@@ -2,32 +2,33 @@ const express = require("express");
 const productmodel = require("../models/productmodel");
 const ordermodel = require("../models/ordermodel")
 const usermodel = require("../models/usermodel")
-
 const bodyParser = require('body-parser')
+const cloudinary = require('cloudinary')
+const { getDataUri } = require('./dataUri.js');
+const multer = require('multer')
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage })
+const router = express.Router();
+
+const config = require('../config/config')
 let urlencodedparser = bodyParser.urlencoded({ extended: false })
 
-const multer = require('multer')
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, '../frontend/public/images')
-    },
-    filename: (req, file, cb) => {
-        console.log(file);
-        cb(null, (file.originalname))
-    }
-})
-
-const upload = multer({ storage: storage })
-
-const router = express.Router();
+cloudinary.v2.config({
+    cloud_name: "dylanvdcg",
+    api_key: "756119943654168",
+    api_secret: "KTsyF70e_NpmGLcJVRyYWIzaWTI"
+});
 
 router.post("/addproductback", upload.single('productimg'), urlencodedparser, async (req, res) => {
 
     try {
         console.log(req.file.originalname);
         let imgname = "/images/" + req.file.originalname
-        const newproduct = new productmodel({ productname: req.body.productname, productprice: req.body.productprice, stock: req.body.stock, brand: req.body.brand, imgsrc: imgname })
+        const fileUri = getDataUri(req.file)
+        const result1 = await cloudinary.v2.uploader.upload(fileUri.content, { folder: 'NutKart' });
+        console.log(result1);
+        let imgurl = result1.url
+        const newproduct = new productmodel({ productname: req.body.productname, productprice: req.body.productprice, stock: req.body.stock, brand: req.body.brand, imgsrc: imgname, imgsrc2: imgurl })
         const result = await newproduct.save()
         res.send({ message: true })
     } catch (error) {
@@ -67,7 +68,6 @@ router.get("/orders", async (req, res) => {
         console.log(error);
     }
 })
-
 
 /**
  * @swagger
