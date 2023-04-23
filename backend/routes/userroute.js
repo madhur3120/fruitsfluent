@@ -219,8 +219,6 @@ router.post("/login", async (req, res) => {
  */
 
 router.post("/placeorder", async (req, res) => {
-
-    // const query_result1 =  await user.findOne({email:req.body.email})
     await console.log(req.body);
     const neworder = new order({username : req.body.username,email : req.body.email,products : req.body.products,ordertotal : req.body.ordertotal})
     const result = await neworder.save()

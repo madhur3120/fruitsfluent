@@ -15,13 +15,13 @@ const router = express.Router()
  */
 
 router.get("/all", async (req, res) => {
-
+    console.log('hello')
     try {
         const data = await productmodel.find({})
             .lean() // use plain JavaScript objects instead of Mongoose documents
             .sort({ _id: 1 }) // sort by _id in ascending order
             .exec(); // execute the query
-
+        console.log(data);
         res.json({ data });
     } catch (err) {
         console.error(err)
