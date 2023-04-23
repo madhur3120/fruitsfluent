@@ -24,9 +24,16 @@ app.listen(config.port, () => {
 database()
 
 // app.use(cors());
-app.use(cors({
-    origin: "https://fruitsfluent.vercel.app"
-}));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+
+    next();
+}); //cors error
 
 
 // const multer = require('multer')
@@ -42,7 +49,7 @@ app.use(cors({
 // const upload = multer({ storage: storage })
 
 
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const morgan = require("morgan");
 
 // Swagger dependencies
@@ -80,7 +87,7 @@ const swaggerSpec = swaggerJSDoc(swaggerOptions);
 // Serve Swagger documentation
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(helmet());
+// app.use(helmet());
 
 app.use(morgan("dev"));
 
