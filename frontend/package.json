@@ -2,7 +2,7 @@
   "name": "fruitfluent2",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000/",
+  "proxy": "https://nutkart-backend.onrender.com",
   "dependencies": {
     "@cloudinary/react": "^1.5.0",
     "@cloudinary/url-gen": "^1.8.6",
