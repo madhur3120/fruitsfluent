@@ -7,7 +7,7 @@ const Current_stock = () => {
     const [data, setData] = useState([])
 
     const show = async (e) =>{
-        const res =  await fetch("/admin/current_stock", {
+        const res =  await fetch("https://nutkart-backend.onrender.com/admin/current_stock", {
             method : "GET"  
         })
     

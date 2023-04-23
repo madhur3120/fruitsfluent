@@ -7,7 +7,7 @@ const Orders = () => {
   const [data, setData] = useState([])
 
     const show = async (e) =>{
-        const res =  await fetch("/admin/orders", {
+        const res =  await fetch("https://nutkart-backend.onrender.com/admin/orders", {
             method : "GET"  
         })
     
