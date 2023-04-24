@@ -1,24 +1,25 @@
 # NUTKART E-Commerce site for Dryfruits
 
+##Deployed Link - https://fruitsfluent.vercel.app/
+
 Video Demonstration of the website - https://youtu.be/7hj0Lk9GxOk
 
-Copy the link and clone it in a new folder : [command :- https://github.com/madhur3120/fruitsfluent ]
+##Run the project in Local System :
 
-##Deployed Link - https://fruitsfluent.vercel.app/
+Copy the link and clone it in a new folder : [command :- https://github.com/madhur3120/fruitsfluent ]
 
 Open the terminal and run : [command :- cd .\fruitsfluent]
 
 Make sure that npm is installed in your system
 
-Install all these dependencies 
+Install all these dependencies
+ cd .\backend
+ npm install
+ cd ..
+ cd ./frontend
+ npm install
 
-##axios overlay-navbar react-alert react-alert-template-basic react-dom react-helmet react-icons react-rating-stars-component react-redux react-router-dom react-scripts redux-devtools-extension redux-thunk web-vitals webfont webfontloader validator react-material-ui-carousel 
-
-by using below command 
-
-Run the following : [command :- npm init] [command :- npm i <above given dependencies>]
-
-Now run the command : [command :- npm run start]
+Now run the command for both backend and frontend: [command :- npm start]
 
 Then open any web-browser and enter : [http://localhost:3000/]
 
