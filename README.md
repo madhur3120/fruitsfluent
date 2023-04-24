@@ -1,24 +1,38 @@
 # NUTKART E-Commerce site for Dryfruits
 
+##Deployed Link - https://fruitsfluent.vercel.app/
+
 Video Demonstration of the website - https://youtu.be/7hj0Lk9GxOk
 
-Copy the link and clone it in a new folder : [command :- https://github.com/madhur3120/fruitsfluent ]
+##Run the project in Local System :
 
-##Deployed Link - https://fruitsfluent.vercel.app/
+Copy the link and clone it in a new folder : [command :- https://github.com/madhur3120/fruitsfluent ]
 
 Open the terminal and run : [command :- cd .\fruitsfluent]
 
 Make sure that npm is installed in your system
 
-Install all these dependencies 
+Install all these dependencies
+ cd .\backend
+ npm install
+ cd ..
+ cd ./frontend
+ npm install
 
-##axios overlay-navbar react-alert react-alert-template-basic react-dom react-helmet react-icons react-rating-stars-component react-redux react-router-dom react-scripts redux-devtools-extension redux-thunk web-vitals webfont webfontloader validator react-material-ui-carousel 
+Add the .env file in the backend folder and add the following urls:
+PORT = 4000
 
-by using below command 
+DB_URI = "mongodb+srv://your-db-uri"
 
-Run the following : [command :- npm init] [command :- npm i <above given dependencies>]
+EMAIL = "admin-email"
 
-Now run the command : [command :- npm run start]
+CLOUD_NAME = "your-cloudinary-cloud-name"
+
+API_KEY = cloudinary-api-key
+
+API_SECRET_KEY = cloudinary-secret-key
+
+Now run the command for both backend and frontend: [command :- npm start]
 
 Then open any web-browser and enter : [http://localhost:3000/]
 
