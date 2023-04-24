@@ -1,6 +1,6 @@
 # NUTKART E-Commerce site for Dryfruits
 
-Video Demonstration of the website - https://youtu.be/yzKznBWD3CY
+Video Demonstration of the website - https://youtu.be/7hj0Lk9GxOk
 
 Copy the link and clone it in a new folder : [command :- https://github.com/madhur3120/fruitsfluent ]
 
