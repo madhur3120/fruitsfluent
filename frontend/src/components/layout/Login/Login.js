@@ -131,7 +131,7 @@ const Login = () => {
                   <div className="inputbox">
                     <input  type="password" placeholder="Enter your password" required className='loginforminput' onChange={e => setpassword(e.target.value)}/>
                   </div>
-                  <div className="forgettext"><a href="#">Forgot password?</a></div>
+                  {/* <div className="forgettext"><a href="#">Forgot password?</a></div> */}
                   <div className="button inputbox">
                     <input onClick={login} type="submit" value="LogIn" className='loginforminput' />
                   </div>
