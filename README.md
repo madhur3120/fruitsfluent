@@ -19,6 +19,19 @@ Install all these dependencies
  cd ./frontend
  npm install
 
+Add the .env file in the backend folder and add the following urls:
+PORT = 4000
+
+DB_URI = "mongodb+srv://your-db-uri"
+
+EMAIL = "admin-email"
+
+CLOUD_NAME = "your-cloudinary-cloud-name"
+
+API_KEY = cloudinary-api-key
+
+API_SECRET_KEY = cloudinary-secret-key
+
 Now run the command for both backend and frontend: [command :- npm start]
 
 Then open any web-browser and enter : [http://localhost:3000/]
