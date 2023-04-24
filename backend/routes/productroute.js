@@ -13,18 +13,29 @@ const router = express.Router()
  *       200:
  *         description: Returns an array of products
  */
-
+const redis = require("redis");
+const client = redis.createClient({ url: "rediss://red-ch3eq8ceoogsn02onqvg:OxjjeNfdBsgrf2BxCZCNU6lPg9NQd62w@oregon-redis.render.com:6379" });
+client.connect();
 router.get("/all", async (req, res) => {
-    try {
-        const data = await productmodel.find({})
-            .lean() // use plain JavaScript objects instead of Mongoose documents
-            .sort({ _id: 1 }) // sort by _id in ascending order
-            .exec(); // execute the query
-        console.log(data);
-        res.json({ data });
-    } catch (err) {
-        console.error(err)
-        res.status(500).json({ msg: "Internal server error" })
+    const product = await client.get(`product`);
+    if (product) {
+        res.json(
+            JSON.parse(product)
+        );
+    }
+    else {
+        try {
+            const data = await productmodel.find({})
+                .lean() // use plain JavaScript objects instead of Mongoose documents
+                .sort({ _id: 1 }) // sort by _id in ascending order
+                .exec(); // execute the query
+            console.log(data);
+            client.setEx(`product`, 3600, JSON.stringify(data));
+            res.json({ data });
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ msg: "Internal server error" })
+        }
     }
 });
 
