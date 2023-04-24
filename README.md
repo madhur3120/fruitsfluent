@@ -4,7 +4,9 @@ Video Demonstration of the website - https://youtu.be/7hj0Lk9GxOk
 
 Copy the link and clone it in a new folder : [command :- https://github.com/madhur3120/fruitsfluent ]
 
-Open the terminal and run : [command :- cd .\NutKart]
+##Deployed Link - https://fruitsfluent.vercel.app/
+
+Open the terminal and run : [command :- cd .\fruitsfluent]
 
 Make sure that npm is installed in your system
 
