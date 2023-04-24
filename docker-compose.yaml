@@ -1,27 +1,44 @@
+version: '3.7'
 services:
-  
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      
+    image: spd-server
+    container_name: spd-node-server
+    command: /usr/src/app/node_modules/.bin/nodemon app.js
+    volumes:
+      - ./backend/:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "4000:4000"
-    volumes:
-      - logs:/app/logs
-      - ./backend/images:/app/images
-      - ./backend:/app
-      - /app/node_modules
-      
-
+    env_file: ./backend/.env
+    networks:
+      - app-network
   frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: spd-client
+    container_name: spd-react-client
+    command: npm start
     volumes:
-      - ./frontend/src:/app/src
-    stdin_open: true
-    tty: true
+      - ./frontend/:/usr/app
+      - /usr/app/node_modules
     depends_on:
       - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge
 
 volumes:
-data:
-logs:
+    data-volume:
+    node_modules:
+    web-root:
+      driver: local
